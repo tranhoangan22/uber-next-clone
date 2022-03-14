@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import mapboxgl from "!mapbox-gl";
-import { MapContainer } from "./map.styles";
+import tw from "tailwind-styled-components"; // Create a Tailwind Styled Component with Tailwind rules that you can render directly
 
 // set accessToken property of the object `mapboxgl`
 mapboxgl.accessToken =
@@ -38,5 +38,7 @@ const Map = ({ pickupCoordinates, dropoffCoordinates }) => {
 
   return <MapContainer id="map"></MapContainer>;
 };
+
+export const MapContainer = tw.div`flex-1 h-1/2`; // MapContainer has the height that is half of the page
 
 export default Map;

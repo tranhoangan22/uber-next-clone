@@ -1,4 +1,5 @@
 import React from "react";
+import tw from "tailwind-styled-components";
 import Map from "./components/map/map.component";
 
 import Link from "next/link";
@@ -7,14 +8,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import RideSelector from "./components/ride-selector/ride-selector.component";
-import {
-  ConfirmWrapper,
-  RideContainer,
-  ConfirmButtonContainer,
-  ConfirmContainer,
-  ButtonContainer,
-  BackButtonContainer,
-} from "./confirm.styles";
 
 const Confirm = () => {
   const [pickupCoordinates, setPickupCoordinates] = useState([0, 0]);
@@ -83,5 +76,17 @@ const Confirm = () => {
     </ConfirmWrapper>
   );
 };
+
+const ConfirmWrapper = tw.div`relative flex flex-col h-screen`;
+
+const RideContainer = tw.div`flex flex-col flex-1 h-1/2`; // flex-1: RideContainer takes the same space as Map (also having flex-1) inside ConfirmContainer. These 2 containers take as much space as possible in ConfirmContainer
+
+const ConfirmButtonContainer = tw.div`border-t-2`;
+
+const ConfirmContainer = tw.div`bg-black text-white my-4 mx-4 py-4 text-center text-xl`;
+
+const ButtonContainer = tw.div`absolute z-10 left-3 top-3 bg-white rounded-full cursor-pointer shadow-md`;
+
+const BackButtonContainer = tw.img`h-full object-contain`;
 
 export default Confirm;

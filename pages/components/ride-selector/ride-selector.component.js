@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { carList } from "../../data/carList";
-import {
-  RideSelectorWrapper,
-  TitleContainer,
-  CarListContainer,
-  CarContainer,
-  CarImgContainer,
-  CarDetailsContainer,
-  ServiceContainer,
-  TimeContainer,
-  PriceContainer,
-} from "./ride-selector.styles";
+import tw from "tailwind-styled-components";
 
 const RideSelector = ({ pickupCoordinates, dropoffCoordinates }) => {
   const [rideDuration, setRideDuration] = useState(0); // rideDuration is how long it takes to go from point a to point b
@@ -50,5 +40,21 @@ const RideSelector = ({ pickupCoordinates, dropoffCoordinates }) => {
     </RideSelectorWrapper>
   );
 };
+
+const RideSelectorWrapper = tw.div`flex-1 overflow-y-scroll flex flex-col`; // `flex flex-col` makes it possible to enable scrolling only in CarListContainer and keep TitleContainer "sticky"
+
+const TitleContainer = tw.div`text-gray-500 text-center text-xs py-2 border-b`;
+
+const CarListContainer = tw.div`overflow-y-scroll`;
+
+const CarContainer = tw.div`flex p-4 items-center`;
+
+const CarImgContainer = tw.img`h-14 mr-4`;
+
+const CarDetailsContainer = tw.div`flex-1`; // CartDetailsContainer automatically has flex-direction: column
+const ServiceContainer = tw.div`font-medium`;
+const TimeContainer = tw.div`text-xs text-blue-500`;
+
+const PriceContainer = tw.div`text-sm`;
 
 export default RideSelector;

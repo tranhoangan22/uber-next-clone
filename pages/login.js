@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
-import {
-  LoginWrapper,
-  SignInButtonContainer,
-  UberLogoContainer,
-  TitleContainer,
-  HeadImageContainer,
-} from "./login.styles";
 
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { auth, provider } from "../firebase";
+
+import tw from "tailwind-styled-components";
 
 const Login = () => {
   const router = useRouter();
@@ -34,6 +29,16 @@ const Login = () => {
     </LoginWrapper>
   );
 };
+
+const LoginWrapper = tw.div`flex flex-col h-screen w-screen bg-gray-200 p-4`; // p-4 adds padding in all directions and squeezes it down in the middle
+
+const SignInButtonContainer = tw.button`bg-black text-white text-center py-4 mt-8 self-center w-full`;
+
+const UberLogoContainer = tw.img`h-20 w-auto object-contain self-start`;
+
+const TitleContainer = tw.div`text-5xl pt-4 text-gray-500`;
+
+const HeadImageContainer = tw.img`object-contain w-full`;
 
 export default Login;
 

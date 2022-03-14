@@ -1,22 +1,10 @@
-import { Wrapper, ActionItemsContainer } from "./index.styles";
 import Map from "./components/map/map.component";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/router";
-
-import {
-  HeaderContainer,
-  UberLogoContainer,
-  ProfileContainer,
-  NameContainer,
-  UserImgContainer,
-  ActionsButton,
-  ActionButton,
-  ActionButtonImgContainer,
-  InputButton,
-} from "./index.styles";
+import tw from "tailwind-styled-components"; // Create a Tailwind Styled Component with Tailwind rules that you can render directly
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -76,3 +64,25 @@ export default function Home() {
     </Wrapper>
   );
 }
+
+const Wrapper = tw.div`flex flex-col h-screen`; // h-screen -> height: 100vh;
+
+const ActionItemsContainer = tw.div`flex-1 p-4`;
+
+const HeaderContainer = tw.div`flex justify-between items-center`;
+
+const UberLogoContainer = tw.img`h-28`;
+
+const ProfileContainer = tw.div`flex items-center`;
+
+const NameContainer = tw.div`mr-4 w-20 text-sm`;
+
+const UserImgContainer = tw.img`h-12 w-12 rounded-full border border-gray-200 p-px cursor-pointer`; // to show the border, enable some padding: ;
+
+const ActionsButton = tw.div`flex flex-row`;
+
+const ActionButton = tw.div` flex flex-col bg-gray-200 flex-1 m-1 h-32 items-center justify-center rounded-lg transform hover:scale-105 transition text-xl`;
+
+const ActionButtonImgContainer = tw.img`h-3/5`;
+
+const InputButton = tw.div`h-20 bg-gray-200 text-2xl p-4 flex items-center mt-8`;
