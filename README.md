@@ -9,12 +9,5 @@ Tech stack:
 - firebase
 - mapbox apis
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Deployed App
+https://uber-next-clone-three-ruby.vercel.app
