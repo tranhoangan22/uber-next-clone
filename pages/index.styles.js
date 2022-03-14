@@ -12,7 +12,7 @@ export const ProfileContainer = tw.div`flex items-center`;
 
 export const NameContainer = tw.div`mr-4 w-20 text-sm`;
 
-export const UserImgContainer = tw.img`h-12 w-12 rounded-full border border-gray-200 p-px`; // to show the border, enable some padding
+export const UserImgContainer = tw.img`h-12 w-12 rounded-full border border-gray-200 p-px cursor-pointer`; // to show the border, enable some padding: ;
 
 export const ActionsButton = tw.div`flex flex-row`;
 

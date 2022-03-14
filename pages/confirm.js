@@ -1,6 +1,8 @@
 import React from "react";
 import Map from "./components/map/map.component";
 
+import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
@@ -10,11 +12,13 @@ import {
   RideContainer,
   ConfirmButtonContainer,
   ConfirmContainer,
+  ButtonContainer,
+  BackButtonContainer,
 } from "./confirm.styles";
 
 const Confirm = () => {
-  const [pickupCoordinates, setPickupCoordinates] = useState();
-  const [dropoffCoordinates, setDropoffCoordinates] = useState();
+  const [pickupCoordinates, setPickupCoordinates] = useState([0, 0]);
+  const [dropoffCoordinates, setDropoffCoordinates] = useState([0, 0]);
 
   // accessing the available parameters in the URL for this page (/confirm)
   const router = useRouter();
@@ -58,12 +62,20 @@ const Confirm = () => {
 
   return (
     <ConfirmWrapper>
+      <Link href="/search">
+        <ButtonContainer>
+          <BackButtonContainer src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+        </ButtonContainer>
+      </Link>
       <Map
         pickupCoordinates={pickupCoordinates}
         dropoffCoordinates={dropoffCoordinates}
       />
       <RideContainer>
-        <RideSelector />
+        <RideSelector
+          pickupCoordinates={pickupCoordinates}
+          dropoffCoordinates={dropoffCoordinates}
+        />
         <ConfirmButtonContainer>
           <ConfirmContainer>Confirm UberX</ConfirmContainer>
         </ConfirmButtonContainer>
